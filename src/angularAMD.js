@@ -118,6 +118,8 @@ define(function () {
         // Initialization not necessary to call this method.
         var load_controller;
 
+        throw 'The "route" function should not be used in Nexus';
+
         /*
         If `controllerUrl` is provided, load the provided Url using requirejs.  If `controller` is not provided
         but `controllerUrl` is, assume that module to be loaded will return a function to act as controller.
@@ -148,10 +150,13 @@ define(function () {
             var resolve = config.resolve || {};
             resolve['__AAMDCtrl'] = ['$q', '$rootScope', function ($q, $rootScope) { // jshint ignore:line
                 var defer = $q.defer();
+                /* Reference to "require" removed; it was not used (together with all the "route" function),
+                   and it generated a warning during Webpack build.
                 require([load_controller], function (ctrl) {
                     defer.resolve(ctrl);
                     $rootScope.$apply();
                 });
+                */
                 return defer.promise;
             }];
             config.resolve = resolve;
