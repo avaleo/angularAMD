@@ -1,6 +1,6 @@
 {
     "name": "angularAMD",
-    "version": "0.2.1",
+    "version": "0.2.1-kmd",
     "dependencies": {
         "angular": "1.2.21",
         "requirejs": "~2.1.9"
